@@ -11,7 +11,7 @@
 + [Findings](#Findings)
 
 ## Project Overview
-#### This Project analyses the employee Data which contains detailed information on education level, joining year, city, payment tier, age, gender, bench history, experience, and leave status, revealing that most employees hold Bachelor's degrees, are primarily based in Bangalore, and typically fall in the 20s to 30s age range, with a varied mix of experience levels, bench history, and a significant portion indicating prior intent to leave.
+#### This Project analyses the KMS COMPANY  which contains detailed information sales transaction data. Each row represents a sales order record, and the dataset contains detailed information about order processing, customer demographics, product categories, pricing, shipping methods, and profitability.
 ---
 
 ## Data Description
@@ -40,9 +40,12 @@
 ---
 
 ## Objectives
- + To analyze employee attributes 
- + To understand the factors influencing employee attrition  
- + To predict whether an employee is likely to leave the company based on demographics, experience, and job-related features.
++ sales performance
++ customer behavior
++ product profitability 
++ shipping efficiency  
++ optimizing operations
+
 ---
 ## Tools Used
 + MICROSOFT EXCEL
@@ -56,18 +59,65 @@
 #### https://ibb.co/pvsTBPvH
 
 ## 2.SQL Queries
-#### https://ibb.co/CpWj0mjK
+#### --- Product Category with the highest sales---
+SELECT Product_Category ,Sales FROM [dbo].[KMS Sql Case Study]
+ORDER BY Product_Category DESC;
+
+#### ---What are the Top 3 and Bottom 3 regions in terms of sales?---
+SELECT TOP 3 * FROM [dbo].[KMS Sql Case Study]
+ORDER BY Region DESC;
+
+#### SELECT TOP 3 * FROM [dbo].[KMS Sql Case Study]
+     ORDER BY Region ASC;
+
+
+#### --- What were the total sales of appliances in Ontario?--
+SELECT Region = 'Ontario',Product_Sub_Category='Appliances', SUM(Sales)  AS total_sales FROM [dbo].[KMS Sql Case Study]
+GROUP BY Region  , Product_Sub_Category
+ORDER BY Region  ,Product_Sub_Category;
+
+
+#### --- KMS incurred the most shipping cost using which shipping method--
+SELECT TOP 1 * FROM [dbo].[KMS Sql Case Study]
+ORDER BY Ship_Mode;
+
+ #### ---Who are the most valuable customers, and what products or services do they typically purchase?---
+SELECT TOP 1 Customer_Name,Product_Category , MAX(Sales) Most_Valuable_Customer FROM [dbo].[KMS Sql Case Study]
+GROUP BY Customer_Name,Product_Category
+ORDER BY Customer_Name,Product_Category DESC;
+
+#### ---Which small business customer had the highest sales?---
+SELECT TOP 1 Customer_Name, Customer_Segment = 'Small Business',  MAX(Sales)  FROM [dbo].[KMS Sql Case Study]
+GROUP BY Customer_Name, Customer_Segment
+ORDER BY Customer_Name,Customer_Segment ;
+
+#### ---Which Corporate Customer placed the most number of orders in 2009 – 2012?---
+SELECT  TOP 1 Customer_Name, Order_Date  FROM [dbo].[KMS Sql Case Study]
+WHERE [Order_Date]>= '2009' AND [Order_Date]<= '2012'
+ORDER BY Customer_Name,Order_Date DESC;
 
 ## 3.Power Bi Dashboard
 #### https://ibb.co/QvszvFk3
 ---
 # Findings
- ### 1. Majority Education Level: Most employees have a Bachelors degree.
-### 2. Common Cities: The majority of employees are located in Bangalore, followed by Pune and New Delhi.
-### 3. Payment Tier Distribution: Most employees are in PaymentTier 3, indicating a concentration in the highest pay level.
-### 4. Age Range: Employees' ages range from early 20s to late 30s, with many in their 30s.
-### 5. Gender Representation: The dataset includes both Male and Female employees, with a slight male majority.
-### 6. Experience Levels: Experience varies widely, from 0 to 5 years prior to joining.
-### 7. Employee Attrition (LeaveOrNot): There are both leavers (`1`) and stayers (`0`), allowing for predictive modeling on attrition behavior.
+
+ ### 1. The dataset includes historical orders dating as far back as 2011 and 2012, which allows for long-term trend analysis.
+
+### 2. All customer entries shown are from Nunavut, indicating either a filtered view or a regional focus for the analysis.
+
+### 3. The most common shipping method is "Regular Air", followed by "Express Air", suggesting a preference for faster delivery services.
+
+### 4. Several orders show negative profit values, indicating that some sales were made at a loss—possibly due to high discounts or shipping costs.
+
+### 5. Discounts are applied at various rates (e.g., 0.03 to 0.25), which could be linked to customer segment, order priority, or promotional offers.
+
+### 6.The dataset includes a wide range of product categories such as Office Supplies, Furniture, and Technology—each with specific product names and packaging types.
+
+### 7.Orders have different priorities such as Low, High, Medium, Not Specified, andCritical, which may influence delivery timelines and profit margins.
+
+### 8. Sales amounts and quantity ordered vary significantly, showing a mix of small and large orders, possibly from both individuals and businesses.
+
+
+
 
 
