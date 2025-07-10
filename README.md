@@ -1,4 +1,5 @@
 # KMS-COMPANY-ANALYSIS
+### https://ibb.co/fY2ZwgqB
 ## Table of Contents
 + [Project Overview](#Project-Overview)
 + [Dataset Description](#Dataset-Description)
@@ -56,7 +57,8 @@
   
 # Analysis and Insight 
 ## 1.Excel Dashboard
-#### https://ibb.co/pvsTBPvH
+#### https://ibb.co/4nZ2njZP
+#### https://ibb.co/VW5VkBRC
 
 ## 2.SQL Queries
 #### --- Product Category with the highest sales---
@@ -97,7 +99,8 @@ WHERE [Order_Date]>= '2009' AND [Order_Date]<= '2012'
 ORDER BY Customer_Name,Order_Date DESC;
 
 ## 3.Power Bi Dashboard
-#### https://ibb.co/QvszvFk3
+#### https://ibb.co/Ng9Cw3DF
+#### https://ibb.co/rRTKCHzx
 ---
 # Findings
 
